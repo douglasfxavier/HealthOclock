@@ -1,0 +1,17 @@
+<resources>
+    <string name="app_name">Health O`Clock</string>
+    <string name="email">E-mail</string>
+    <string name="senha">Senha</string>
+    <string name="description_logo">Logomarca da Health O`Clock</string>
+    <string name="botaoentrar">Entrar</string>
+    <string name="menu_op_meuHO">Meu HO</string>
+    <string name="menu_op_outrosPacientes">Outros Pacientes</string>
+    <string name="menu_op_remedios">Remédios</string>
+    <string name="menu_op_exames">Exames</string>
+    <string name="menu_op_refeicoes">Refeições</string>
+    <string name="menu_op_agua">Água</string>
+    <string name="menuactivity_title">Seus Lembretes</string>
+    <string name="title_activity_lista_remedios">Lista de Remedios</string>
+    <string name="title_activity_remedios">Remedios</string>
+    <string name="search_hint">Buscar</string>
+</resources>

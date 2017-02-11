@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="com.example.doug.healthoclock">
+
+    <application
+        android:allowBackup="true"
+        android:icon="@drawable/healthoclock_icone_branco_42x42"
+        android:label="@string/app_name"
+        android:supportsRtl="true"
+        android:theme="@style/AppTheme">
+        <meta-data
+            android:name="android.app.default_searchable"
+            android:value=".SearchResultActivity" />
+
+        <activity android:name=".controller.LoginAcitvity">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name=".controller.WelcomeActivity"
+            android:theme="@style/AppViews" />
+        <activity
+            android:name=".controller.MenuActivity"
+            android:theme="@style/AppViews" />
+        <activity
+            android:name=".controller.RemediosActivity"
+            android:label="@string/title_activity_remedios"
+            android:theme="@style/AppViews" />
+        <activity android:name=".controller.SearchResultActivity">
+            <intent-filter>
+                <action android:name="android.intent.action.SEARCH" />
+            </intent-filter>
+
+            <meta-data
+                android:name="android.app.default_searchable"
+                android:value=".SearchResultActivity" />
+        </activity>
+        <activity android:name=".controller.CadastroControleRemedio"></activity>
+    </application>
+
+</manifest>
