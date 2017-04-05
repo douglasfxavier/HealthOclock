@@ -12,16 +12,16 @@ public class ControleAgua extends Controle{
     private int coposDagua;
     private List<Lembrete> lembretes = new ArrayList<Lembrete>();
 
-    public ControleAgua(Paciente paciente, long dataInicio, long dataFim, int repeticao,
+    public ControleAgua(Paciente paciente, long dataInicio, long dataFim,
                         int coposDagua, List<Lembrete> lembretes) {
-        super(paciente, dataInicio, dataFim, repeticao);
+        super(paciente, dataInicio, dataFim);
         this.coposDagua = coposDagua;
         this.lembretes = lembretes;
     }
 
     public ControleAgua(Paciente paciente, int diaInicio, int mesInicio, int anoInicio,
                         int diaFim, int mesFim, int anoFim, int repeticao, int coposDagua, List<Lembrete> lembretes) {
-        super(paciente, diaInicio, mesInicio, anoInicio, diaFim, mesFim, anoFim, repeticao);
+        super(paciente, diaInicio, mesInicio, anoInicio, diaFim, mesFim, anoFim);
         this.coposDagua = coposDagua;
         this.lembretes = lembretes;
     }

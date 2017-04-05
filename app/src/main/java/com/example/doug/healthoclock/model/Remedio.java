@@ -5,22 +5,28 @@ package com.example.doug.healthoclock.model;
  */
 
 public class Remedio {
-    private int id;
+    private Long id;
     private String nome;
+    private String principioAtivo;
+    private String laboratorio;
+    private String classeTerapeutica;
 
     public Remedio() {
     }
 
-    public Remedio(int id, String nome) {
+    public Remedio(Long id, String nome, String principioAtivo, String laboratorio, String classeTerapeutica) {
         this.id = id;
         this.nome = nome;
+        this.principioAtivo = principioAtivo;
+        this.laboratorio = laboratorio;
+        this.classeTerapeutica = classeTerapeutica;
     }
 
-    public int getId() {
+    public Long getId() {
         return id;
     }
 
-    public void setId(int id) {
+    public void setId(Long id) {
         this.id = id;
     }
 
@@ -32,4 +38,27 @@ public class Remedio {
         this.nome = nome;
     }
 
+    public String getPrincipioAtivo() {
+        return principioAtivo;
+    }
+
+    public void setPrincipioAtivo(String principioAtivo) {
+        this.principioAtivo = principioAtivo;
+    }
+
+    public String getLaboratorio() {
+        return laboratorio;
+    }
+
+    public void setLaboratorio(String laboratorio) {
+        this.laboratorio = laboratorio;
+    }
+
+    public String getClasseTerapeutica() {
+        return classeTerapeutica;
+    }
+
+    public void setClasseTerapeutica(String classeTerapeutica) {
+        this.classeTerapeutica = classeTerapeutica;
+    }
 }

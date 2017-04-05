@@ -1,0 +1,9 @@
+CREATE TABLE IF NOT EXISTS Lembrete (
+	IdPaciente INTEGER NOT NULL,
+	IdControle INTEGER NOT NULL,
+	DataHora	NUMERIC NOT NULL,
+	Visto	INTEGER,
+	Cumprido	INTEGER,
+	PRIMARY KEY(IdPaciente,IdControle,DataHora),
+	FOREIGN KEY (IdControle) REFERENCES ControleRemedio(Id)
+);

@@ -1,0 +1,12 @@
+CREATE TABLE ControleRemedio (
+	Id INTEGER NOT NULL PRIMARY KEY AUTOINCREMENT,
+	IdPaciente	INTEGER NOT NULL,
+	IdRemedio	INTEGER NOT NULL,
+	DataInicioUso	NUMERIC NOT NULL,
+	DataFinalUso	NUMERIC,
+	Dosagem TEXT,
+	FormaUso TEXT,
+	Tarja TEXT,
+	FOREIGN KEY(IdPaciente) REFERENCES Paciente(Id),
+	FOREIGN KEY(IdRemedio) REFERENCES Remedio(Id)
+);

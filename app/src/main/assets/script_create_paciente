@@ -1,8 +1,8 @@
 CREATE TABLE IF NOT EXISTS Paciente (
 	Id	INTEGER NOT NULL PRIMARY KEY AUTOINCREMENT,
 	Nome	TEXT NOT NULL,
-	DataNascimento	NUMERIC NOT NULL,
-	Sexo	TEXT NOT NULL,
-	PlanoSaude	INTEGER,
+	DataNascimento	NUMERIC,
+	Sexo	TEXT,
+	PlanoSaude	TEXT,
 	TipoSanguineo	TEXT
 );

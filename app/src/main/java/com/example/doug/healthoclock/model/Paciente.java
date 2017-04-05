@@ -12,7 +12,7 @@ public class Paciente {
     private String nome;
     private Calendar dataNascimento;
     private String sexo;
-    private PlanoSaude planoSaude;
+    private String planoSaude;
     private String tipoSanguineo;
     private List<DoencaCID> doenças;
     private List<ControleRemedio> controleremedios;
@@ -22,12 +22,12 @@ public class Paciente {
     }
 
     public Paciente(int id, String nome, int dia, int mes, int ano,
-                    String sexo, PlanoSaude planoSaude, String tipoSanguineo,
+                    String sexo, String planoSaude, String tipoSanguineo,
                     List<DoencaCID> doenças, List<ControleRemedio> controleremedios) {
         this.id = id;
         this.nome = nome;
         this.dataNascimento = Calendar.getInstance();
-        this.dataNascimento.set(dia,mes,ano);
+        this.dataNascimento.set(ano,mes,dia);
         this.sexo = sexo;
         this.planoSaude = planoSaude;
         this.tipoSanguineo = tipoSanguineo;
@@ -36,8 +36,7 @@ public class Paciente {
     }
 
     public Paciente(int id, String nome, long dataNascimento, String sexo,
-                    PlanoSaude planoSaude, String tipoSanguineo,
-                    List<DoencaCID> doenças, List<ControleRemedio> controleremedios) {
+                    String planoSaude, String tipoSanguineo) {
         this.id = id;
         this.nome = nome;
         this.dataNascimento = Calendar.getInstance();
@@ -45,8 +44,6 @@ public class Paciente {
         this.sexo = sexo;
         this.planoSaude = planoSaude;
         this.tipoSanguineo = tipoSanguineo;
-        this.doenças = doenças;
-        this.controleremedios = controleremedios;
     }
 
     public int getId() {
@@ -87,11 +84,11 @@ public class Paciente {
         this.sexo = sexo;
     }
 
-    public PlanoSaude getPlanoSaude() {
+    public String getPlanoSaude() {
         return planoSaude;
     }
 
-    public void setPlanoSaude(PlanoSaude planoSaude) {
+    public void setPlanoSaude(String planoSaude) {
         this.planoSaude = planoSaude;
     }
 

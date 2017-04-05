@@ -13,36 +13,33 @@ public abstract class Controle {
     private Paciente paciente;
     private Calendar dataInicio;
     private Calendar dataFim;
-    private int repeticao;
     private List<Lembrete> lembretes = new ArrayList<Lembrete>();
 
     public Controle() {
     }
 
-    public Controle(Paciente paciente, long dataInicio, long dataFim, int repeticao) {
+    public Controle(Paciente paciente, long dataInicio, long dataFim) {
         this.paciente = paciente;
         this.dataInicio = Calendar.getInstance();
         this.dataInicio.setTimeInMillis(dataInicio);
         this.dataFim = Calendar.getInstance();
         this.dataFim.setTimeInMillis(dataFim);
-        this.repeticao = repeticao;
     }
 
     public Controle(Paciente paciente, int diaInicio, int mesInicio,  int anoInicio,
-                    int diaFim, int mesFim, int anoFim, int repeticao) {
+                    int diaFim, int mesFim, int anoFim) {
         this.paciente = paciente;
         this.dataInicio = Calendar.getInstance();
         this.dataInicio.set(diaInicio,mesInicio,anoInicio);
         this.dataFim = Calendar.getInstance();
-        this.dataFim.set(diaFim,mesFim,anoFim);
-        this.repeticao = repeticao;
+        this.dataFim.set(anoFim,mesFim,diaFim);
     }
 
     //Construtor usado para as instâncias de exames
     public Controle(Paciente paciente, int dia, int mes, int ano) {
         this.paciente = paciente;
         this.dataInicio = Calendar.getInstance();
-        this.dataInicio.set(dia,mes,ano);
+        this.dataInicio.set(ano,mes,dia);
     }
 
     //Construtor usado para as instâncias de exames
@@ -108,4 +105,14 @@ public abstract class Controle {
     public Lembrete getLembrete (int indice){
         return lembretes.get(indice);
     }
+
+    public void setDataFim(Calendar dataFim) {
+        this.dataFim = dataFim;
+    }
+
+    public void setDataFimInMilles(Long dataFim) {
+        this.dataFim = Calendar.getInstance();
+        this.dataFim.setTimeInMillis(dataFim);
+    }
+
 }

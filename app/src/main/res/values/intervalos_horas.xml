@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string-array name="intervalos_horas">
+        <item>24 em 24 horas</item>
+        <item>12 em 12 horas</item>
+        <item>8 em 8 horas</item>
+        <item>6 em 6 horas</item>
+        <item>4 em 4 horas</item>
+        <item>3 em 3 horas</item>
+        <item>2 em 2 horas</item>
+        <item>1 em 1 hora</item>
+    </string-array>
+</resources>

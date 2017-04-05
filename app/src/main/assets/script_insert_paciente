@@ -1,0 +1,2 @@
+INSERT INTO Paciente VALUES
+(1,'root',null,null,null,null);

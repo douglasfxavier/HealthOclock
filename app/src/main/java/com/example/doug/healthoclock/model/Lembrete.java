@@ -8,7 +8,6 @@ import java.util.List;
  */
 
 public class Lembrete {
-    private int id;
     private Controle controle;
     private Calendar dataHora;
     private Boolean visto;
@@ -21,20 +20,12 @@ public class Lembrete {
         this.visto = visto;
         this.cumprido = cumprido;
     }
-    public Lembrete(Controle controle, int dia, int mes, int ano, int hora, int minutos, Boolean visto, Boolean cumprido) {
+    public Lembrete(Controle controle, int dia, int mes, int ano, int hora, int minuto, Boolean visto, Boolean cumprido) {
         this.controle = controle;
         this.dataHora = Calendar.getInstance();
-        this.dataHora.set(dia,mes,ano,hora,minutos);
+        this.dataHora.set(ano,mes,dia,hora,minuto);
         this.visto = visto;
         this.cumprido = cumprido;
-    }
-
-    public int getId() {
-        return id;
-    }
-
-    public void setId(int id) {
-        this.id = id;
     }
 
     public Controle getControle() {
@@ -68,4 +59,13 @@ public class Lembrete {
     public void setCumprido(Boolean cumprido) {
         this.cumprido = cumprido;
     }
+
+    public  String getDataHoraString(){
+        return String.format("%d/%d/%d. %dh%dh",this.dataHora.get(Calendar.DAY_OF_MONTH),
+                this.dataHora.get(Calendar.MONTH) +1,
+                this.dataHora.get(Calendar.YEAR),
+                this.dataHora.get(Calendar.HOUR_OF_DAY),
+                this.dataHora.get(Calendar.MINUTE));
+    }
+
 }

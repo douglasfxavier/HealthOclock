@@ -11,14 +11,296 @@
     android:orientation="vertical"
     tools:context="com.example.doug.healthoclock.controller.CadastroControleRemedio">
 
-    <LinearLayout
+    <ScrollView
         android:layout_width="match_parent"
         android:layout_height="match_parent">
-        <SearchView
-            android:id="@+id/searchRemedioANS"
+        <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:searchIcon="@drawable/buscar_button">
-        </SearchView>
-    </LinearLayout>
+            android:orientation="vertical">
+            <TextView
+                 android:layout_width="match_parent"
+                 android:layout_height="wrap_content"
+                 android:text="@string/nome_do_remedio"
+                 android:textSize="20sp"
+                android:textColor="@color/colorPatternApp"/>
+<!--            <SearchView
+                 android:id="@+id/searchRemedioANS"
+                 android:layout_width="match_parent"
+                 android:layout_height="wrap_content"
+                 android:searchIcon="@drawable/buscar_button">
+            </SearchView>-->
+
+            <EditText
+                 android:id="@+id/editTextControleNomeRemedio"
+                 android:layout_width="match_parent"
+                 android:layout_height="wrap_content"
+                 android:hint="Digite o nome do remédio"/>
+
+            <Space
+                android:layout_width="match_parent"
+                android:layout_height="20dp" />
+<!--
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/forma_uso"
+                android:textSize="20sp"
+                android:textColor="@color/colorPatternApp"/>
+
+            <Spinner
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">              <
+            </Spinner>
+-->
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/dosagem"
+                android:textSize="20sp"
+                android:textColor="@color/colorPatternApp"/>
+            <EditText
+                android:id="@+id/editTextControleDosagem"
+                android:layout_width="100dp"
+                android:layout_height="wrap_content" />
+            <Space
+                android:layout_width="match_parent"
+                android:layout_height="20dp" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/tarja"
+                android:textSize="20sp"
+                android:textColor="@color/colorPatternApp"/>
+
+            <RadioGroup
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:gravity="center_vertical">
+                <RadioButton
+                    android:id="@+id/radioButtonTarjaBranca"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content" />
+                <FrameLayout
+                    android:layout_width="20dp"
+                    android:layout_height="20dp"
+                    android:background="@color/colorTarjaBranca" ></FrameLayout>
+                <Space
+                android:layout_width="20dp"
+                android:layout_height="20dp" />
+                <RadioButton
+                    android:id="@+id/radioButtonTarjaVermelha"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content" />
+                <FrameLayout
+                    android:layout_width="20dp"
+                    android:layout_height="20dp"
+                    android:background="@color/colorTarjaVermelha" ></FrameLayout>
+                <Space
+                    android:layout_width="20dp"
+                    android:layout_height="20dp" />
+                <RadioButton
+                    android:id="@+id/radioButtonTarjaPreta"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content" />
+                <FrameLayout
+                    android:layout_width="20dp"
+                    android:layout_height="20dp"
+                    android:background="@color/colorTarjaPreta" ></FrameLayout>
+            </RadioGroup>
+
+            <Space
+                android:layout_width="match_parent"
+                android:layout_height="20dp" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/data_hora_inicio_uso"
+                android:textSize="20sp"
+                android:textColor="@color/colorPatternApp"/>
+
+            <DatePicker
+                android:id="@+id/datePickerDataInicalRemedio"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:calendarViewShown="false"
+                android:datePickerMode="spinner"/>
+            <TimePicker
+                android:id="@+id/timePickerHoraInicialRemedio"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:timePickerMode="spinner"
+                 />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/tempo_uso"
+                android:textSize="20sp"
+                android:textColor="@color/colorPatternApp"/>
+            <RadioGroup
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+                <RadioButton
+                    android:id="@+id/radioButtonUsoContinuo"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:text="@string/uso__continuo" />
+
+                <RadioButton
+                    android:id="@+id/radioButtonTempoDeterminado"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:text="@string/uso__tempo_determinado"/>
+            </RadioGroup>
+
+            <Space
+                android:layout_width="match_parent"
+                android:layout_height="20dp" />
+
+            <TextView
+                android:id="@+id/textViewDiasUso"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/dias_uso_remedio"
+                android:textSize="20sp"
+                android:visibility="gone"
+                android:textColor="@color/colorPatternApp"/>
+            <EditText
+                android:id="@+id/editTextDiasUso"
+                android:layout_width="100dp"
+                android:layout_height="wrap_content"
+                android:visibility="gone"/>
+
+            <Space
+                android:layout_width="match_parent"
+                android:layout_height="20dp" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/rotina_uso"
+                android:textSize="20sp"
+                android:textColor="@color/colorPatternApp"/>
+            <RadioGroup
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+                <RadioButton
+                    android:id="@+id/radioButtonDiariamente"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:text="@string/rotina_diariamente"
+                    android:checked="true"/>
+
+                <RadioButton
+                    android:id="@+id/radioButtonDiasAlternados"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:text="@string/rotina_dias_alternados"/>
+            </RadioGroup>
+
+
+            <LinearLayout
+                android:id="@+id/layoutDiasSemana"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:visibility="gone">
+                <LinearLayout
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="5"
+                    android:orientation="vertical">
+                    <CheckBox
+                        android:id="@+id/controleChkSegunda"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="@string/segunda_feira"/>
+                    <CheckBox
+                        android:id="@+id/controleChkTerca"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="@string/terca_feira"/>
+                    <CheckBox
+                        android:id="@+id/controleChkQuarta"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="@string/quarta_feira"/>
+                    <CheckBox
+                        android:id="@+id/controleChkQuinta"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="@string/quinta_feira"/>
+                </LinearLayout>
+                <LinearLayout
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="5"
+                    android:orientation="vertical">
+                    <CheckBox
+                        android:id="@+id/controleChkSexta"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="@string/sexta_feira"/>
+                    <CheckBox
+                        android:id="@+id/controleChkSabado"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="@string/sabado"/>
+                    <CheckBox
+                        android:id="@+id/controleChkDomingo"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="@string/domingo"/>
+                </LinearLayout>
+            </LinearLayout>
+
+            <Space
+                android:layout_width="match_parent"
+                android:layout_height="20dp" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/intervaloHoras"
+                android:textSize="20sp"
+                android:textColor="@color/colorPatternApp"/>
+            <Spinner
+                android:id="@+id/spinnerIntervaloHoras"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+            </Spinner>
+
+            <Space
+                android:layout_width="match_parent"
+                android:layout_height="20dp" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:gravity="center">
+                <Button
+                    android:id="@+id/btnCancelarCadastroRemedio"
+                    android:layout_width="100dp"
+                    android:layout_height="wrap_content"
+                    android:text="@string/botao_cancelar"
+                    android:background="@color/colorPatternButton"/>
+                <Space
+                    android:layout_width="20dp"
+                    android:layout_height="wrap_content"
+                    />
+                <Button
+                    android:id="@+id/btnSalvarCadastroRemedio"
+                    android:layout_width="100dp"
+                    android:layout_height="wrap_content"
+                    android:text="@string/botao_salvar"
+                    android:background="@color/colorPatternButton"/>
+            </LinearLayout>
+        </LinearLayout>
+    </ScrollView>
 </LinearLayout>

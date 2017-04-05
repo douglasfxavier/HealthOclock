@@ -8,18 +8,27 @@ import java.util.Calendar;
 
 public class ControleRemedio extends Controle{
     private Remedio remedio;
-    private Calendar dataInicialUso;
+    private String dosagem;
+    private String formaUso;
+    private String tarja;
 
-    public ControleRemedio(Paciente paciente, long dataInicio, long dataFim, int repeticao, Remedio remedio, Calendar dataInicialUso) {
-        super(paciente, dataInicio, dataFim, repeticao);
+    public ControleRemedio(Paciente paciente, Remedio remedio, long dataInicio, long dataFim,
+                           String dosagem, String formaUso, String tarja) {
+        super(paciente, dataInicio, dataFim);
         this.remedio = remedio;
-        this.dataInicialUso = dataInicialUso;
+        this.dosagem = dosagem;
+        this.formaUso = formaUso;
+        this.tarja = tarja;
     }
 
-    public ControleRemedio(Paciente paciente, int diaInicio, int mesInicio, int anoInicio, int diaFim, int mesFim, int anoFim, int repeticao, Remedio remedio, Calendar dataInicialUso) {
-        super(paciente, diaInicio, mesInicio, anoInicio, diaFim, mesFim, anoFim, repeticao);
+    public ControleRemedio(Paciente paciente, int diaInicio, int mesInicio, int anoInicio,
+                           int diaFim, int mesFim, int anoFim,
+                           Remedio remedio, Calendar dataInicialUso, String dosagem, String formaUso, String tarja) {
+        super(paciente, diaInicio, mesInicio, anoInicio, diaFim, mesFim, anoFim);
         this.remedio = remedio;
-        this.dataInicialUso = dataInicialUso;
+        this.dosagem = dosagem;
+        this.formaUso = formaUso;
+        this.tarja = tarja;
     }
 
     public Remedio getRemedio() {
@@ -30,17 +39,29 @@ public class ControleRemedio extends Controle{
         this.remedio = remedio;
     }
 
-    public Calendar getDataInicialUso() {
-        return dataInicialUso;
+    public String getDosagem() {
+        return dosagem;
     }
 
-    public void setDataInicialUso(Calendar dataInicialUso) {
-        this.dataInicialUso = dataInicialUso;
+    public void setDosagem(String dosagem) {
+        this.dosagem = dosagem;
     }
 
-    public  String getDataInicalUsoString(){
-        return String.format("%d/%d/%d",this.dataInicialUso.get(Calendar.DAY_OF_MONTH),
-                this.dataInicialUso.get(Calendar.MONTH) +1,
-                this.dataInicialUso.get(Calendar.YEAR));
+    public String getFormaUso() {
+        return formaUso;
+    }
+
+    public void setFormaUso(String formaUso) {
+        this.formaUso = formaUso;
+    }
+
+    public String getTarja() {
+        return tarja;
+    }
+
+    public void setTarja(String tarja) {
+        this.tarja = tarja;
     }
 }
+
+

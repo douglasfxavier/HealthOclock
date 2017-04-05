@@ -18,7 +18,10 @@ import android.widget.ListView;
 
 import com.example.doug.healthoclock.R;
 import com.example.doug.healthoclock.dao.BancoHelp;
+import com.example.doug.healthoclock.dao.ControleRemedioDAO;
 import com.example.doug.healthoclock.dao.RemedioDAO;
+import com.example.doug.healthoclock.model.Controle;
+import com.example.doug.healthoclock.model.ControleRemedio;
 import com.example.doug.healthoclock.model.Remedio;
 
 import java.io.IOException;
@@ -27,8 +30,8 @@ import java.util.List;
 
 public class RemediosActivity extends AppCompatActivity {
     private ListView listView;
-    private RemedioDAO remediodao;
-    private List<Remedio> remedios;
+    private ControleRemedioDAO controleRemedioDAO;
+    private List<ControleRemedio> controleRemedios;
     private SearchView searchRemedio;
     private RemediosListViewAdapter adapter;
 
@@ -37,18 +40,19 @@ public class RemediosActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.remedios_layout);
 
-        remediodao = new RemedioDAO(this);
+        controleRemedioDAO = new ControleRemedioDAO(this);
 
         //Carregamento da ListView com a lista de remédios do Paciente
 
-        this.remedios = new ArrayList<Remedio>();
-        remedios = remediodao.getRemedios();
+        this.controleRemedios = new ArrayList<ControleRemedio>();
+        controleRemedios = controleRemedioDAO.getControlesRemediosPorPaciente(1);
 
-        this.listView = (ListView) findViewById(R.id.listViewRemedios);
+        if (controleRemedios != null) {
+            this.listView = (ListView) findViewById(R.id.listViewRemedios);
 
-        adapter = new RemediosListViewAdapter(this,this.remedios);
-        this.listView.setAdapter(adapter);
-
+            adapter = new RemediosListViewAdapter(this, this.controleRemedios);
+            this.listView.setAdapter(adapter);
+        }
         //Adicionar listener de busca dinâmica ao SearchView
 //        this.searchRemedio = (SearchView) findViewById(R.id.searchRemedio);
 //        SearchManager searchManager = (SearchManager) getSystemService(Context.SEARCH_SERVICE);

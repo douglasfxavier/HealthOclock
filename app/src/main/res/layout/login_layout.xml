@@ -10,7 +10,7 @@
     android:paddingTop="@dimen/activity_vertical_margin"
     android:background="@color/colorPatternApp"
     android:orientation="vertical"
-    tools:context="com.example.doug.healthoclock.controller.LoginAcitvity">
+    tools:context="com.example.doug.healthoclock.controller.MainActivity">
 
     <LinearLayout
         android:layout_width="match_parent"

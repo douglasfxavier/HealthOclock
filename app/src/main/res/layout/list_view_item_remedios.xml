@@ -2,24 +2,63 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:orientation="horizontal" android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:layout_margin="@dimen/activity_horizontal_margin"
-    android:gravity="center_vertical">
+    android:layout_margin="@dimen/activity_horizontal_margin">
 
-    <FrameLayout
-        android:id="@+id/tarja"
-        android:layout_width="30dp"
-        android:layout_height="30dp"
-        android:background="@color/colorTarjaAmarela"></FrameLayout>
-    <android.support.v4.widget.Space
-        android:id="@+id/spaceItems"
-        android:layout_width="10dp"
-        android:layout_height="wrap_content" />
-    <TextView
-        android:id="@+id/itemRemedioTextView"
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content">
+        <ImageView
+            android:id="@+id/tarja"
+            android:layout_width="30dp"
+            android:layout_height="30dp"
+            android:background="@color/colorTarjaBranca"></ImageView>
+    </LinearLayout>
+    <Space
+        android:layout_width="20dp"
+        android:layout_height="20dp" />
+    <LinearLayout
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text=""
-        android:hint="@string/menu_op_remedios"
-        android:textSize="20sp"/>
+        android:orientation="vertical">
+        <TextView
+            android:id="@+id/itemRemedioNome"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text=""
+            android:textSize="20sp"/>
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/PrincipioAtivo"
+            android:textSize="10sp"/>
+        <TextView
+            android:id="@+id/itemRemedioPrincioAtivo"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text=""
+            android:textSize="10sp"/>
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/NomeLaboratorio"
+            android:textSize="10sp"/>
+        <TextView
+            android:id="@+id/itemRemedioLaboratorio"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text=""
+            android:textSize="10sp"/>
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/ClasseTerapeutica"
+            android:textSize="10sp"/>
+        <TextView
+            android:id="@+id/itemRemedioClasseTerapeutica"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text=""
+            android:textSize="10sp"/>
+    </LinearLayout>
 
 </LinearLayout>
