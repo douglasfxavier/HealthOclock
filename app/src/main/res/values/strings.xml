@@ -38,4 +38,6 @@
     <string name="intervaloHoras">Intervalo de horas</string>
     <string name="data_exame">Data</string>
     <string name="title_activity_exames">Exames</string>
+    <string name="botao_editar">Editar</string>
+    <string name="botao_excluir">Excluir</string>
 </resources>

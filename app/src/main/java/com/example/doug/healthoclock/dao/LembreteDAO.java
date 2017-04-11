@@ -49,6 +49,15 @@ public class LembreteDAO {
         this.banco.insert("Lembrete",null,values);
     }
 
+    public void deletarLembrete(int pacienteId,int controleId){
+
+        String sql = "DELETE FROM Lembrete WHERE " +
+                "IdPaciente = " + pacienteId + " AND " +
+                "IdControle = " + controleId + ";";
+
+        this.banco.execSQL(sql);
+    }
+
     public void  atualizarLembreteVisto(Lembrete lembrete){
         int idPaciente = lembrete.getControle().getPaciente().getId();
         String query = "UPDATE Lembrete SET Visto = 1 WHERE IdPaciente = " + idPaciente +";";
@@ -97,7 +106,7 @@ public class LembreteDAO {
     public List<Lembrete> getLembretesNaoVistos(int idPaciente){
         List<Lembrete> lembretes = new ArrayList<Lembrete>();
         String query = "SELECT * FROM Lembrete WHERE IdPaciente = " + idPaciente +
-                " AND DataHora < " + Calendar.getInstance().getTimeInMillis() +
+                " AND DataHora <= " + (Calendar.getInstance().getTimeInMillis()+ (60*1000))+
                 " AND Visto = 0" + ";";
         Log.i("HEALTH",query);
         Cursor cursor = this.banco.rawQuery(query,null);

@@ -3,9 +3,11 @@ package com.example.doug.healthoclock.controller;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
+import android.support.v4.app.NavUtils;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.SearchView;
 import android.util.Log;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ListView;
@@ -24,29 +26,28 @@ public class ListaControleRemedioActivity extends AppCompatActivity {
     private ControleRemedioDAO controleRemedioDAO;
     private List<ControleRemedio> controlesRemedios;
     private SearchView searchRemedio;
-    private RemedioListViewAdapter adapter;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.lista_remedios_layout);
 
-        controleRemedioDAO = new ControleRemedioDAO(this);
+        this.controleRemedioDAO = new ControleRemedioDAO(this);
+        this.controlesRemedios = new ArrayList<ControleRemedio>();
 
         //Carregamento da ListView com a lista de remédios do Paciente
-
-        this.controlesRemedios = new ArrayList<ControleRemedio>();
-        controlesRemedios = controleRemedioDAO.getControlesRemediosPorPaciente(1);
+        this.controlesRemedios = controleRemedioDAO.getControlesRemediosPorPaciente(1);
 
         if (controlesRemedios != null) {
             this.listViewRemedios = (ListView) findViewById(R.id.listViewRemedios);
-            adapter = new RemedioListViewAdapter(this, this.controlesRemedios);
+            RemedioListViewAdapter adapter = new RemedioListViewAdapter(this, this.controlesRemedios);
             this.listViewRemedios.setAdapter(adapter);
+            this.listViewRemedios.setOnItemClickListener(new OnClickItem());
         }else{
-            Toast.makeText(this,"Você não tem remédios cadastrados ainda!",Toast.LENGTH_SHORT).show();
+            Toast.makeText(ListaControleRemedioActivity.this,"Você não tem remédios cadastrados!",Toast.LENGTH_LONG).show();
         }
 
-        this.listViewRemedios.setOnItemClickListener(new OnClickItem());
+
         //Adicionar listener de busca dinâmica ao SearchView
 //        this.searchRemedio = (SearchView) findViewById(R.id.searchRemedio);
 //        SearchManager searchManager = (SearchManager) getSystemService(Context.SEARCH_SERVICE);
@@ -76,6 +77,16 @@ public class ListaControleRemedioActivity extends AppCompatActivity {
         }
     }
 
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        switch (item.getItemId()) {
+            // Id correspondente ao botão Up/Home da actionbar
+            case android.R.id.home:
+                NavUtils.navigateUpFromSameTask(this);
+                return true;
+        }
+        return super.onOptionsItemSelected(item);
+    }
 //    private class BuscaDinamica implements SearchView.OnQueryTextListener{
 //
 //        @Override

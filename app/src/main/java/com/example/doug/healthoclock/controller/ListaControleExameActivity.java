@@ -11,9 +11,11 @@ import android.widget.ListView;
 import android.widget.Toast;
 
 import com.example.doug.healthoclock.R;
+import com.example.doug.healthoclock.model.Controle;
 import com.example.doug.healthoclock.model.ControleExame;
 import com.example.doug.healthoclock.dao.ControleExameDAO;
 
+import java.util.ArrayList;
 import java.util.List;
 
 public class ListaControleExameActivity extends AppCompatActivity {
@@ -27,18 +29,24 @@ public class ListaControleExameActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.lista_exames_layout);
 
-        controleExameDAO = new ControleExameDAO(this);
-        controlesExames = controleExameDAO.getControleExames(1);
+        this.controleExameDAO = new ControleExameDAO(this);
+
+        //Carregamento da ListView com a lista de exames do Paciente
+        this.controlesExames = new ArrayList<ControleExame>();
+        this.controlesExames = controleExameDAO.getControleExames(1);
 
         if (controlesExames != null) {
             this.listViewExames = (ListView) findViewById(R.id.listView);
             ExameListViewAdapter adapter = new ExameListViewAdapter(this, controlesExames);
             this.listViewExames.setAdapter(adapter);
-        }else{
-            Toast.makeText(this,"Você não tem exames cadastrados ainda!",Toast.LENGTH_SHORT).show();
+            this.listViewExames.setOnItemClickListener(new OnClickItem());
+
+            //ATENÇÃO: REVER ISSO - ESTÁ DIFERENTE DE LISTACONTROLEREMEDIOACTIVITY
+            if (controlesExames.size() == 0) {
+                Toast.makeText(ListaControleExameActivity.this, "Você não tem exames cadastrados!", Toast.LENGTH_LONG).show();
+            }
         }
 
-        this.listViewExames.setOnItemClickListener(new OnClickItem());
 
         botaoAdicionar = (FloatingActionButton) findViewById(R.id.btnAdicionarExame);
         botaoAdicionar.setOnClickListener(new OnClickBotao());

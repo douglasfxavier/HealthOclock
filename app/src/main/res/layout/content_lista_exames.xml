@@ -21,13 +21,14 @@
         android:text="@string/title_activity_exames"
         android:textColor="@color/colorPatternApp"
         android:textSize="30sp"/>
-
+<!--
     <SearchView
         android:id="@+id/searchExame"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:searchIcon="@drawable/buscar_button">
     </SearchView>
+-->
 
     <ListView
         android:id="@+id/listView"

@@ -74,7 +74,7 @@ public class CadastroControleExameActivity extends AppCompatActivity {
                ControleExame e = new ControleExame(unidade, endereco, paciente,  dados, especialidade,
                     material, exame, dia, mes, ano);
 
-               controleExameDAO.insert(e);
+               controleExameDAO.inserirControleExame(e);
 
                //gerarLembretes();
 

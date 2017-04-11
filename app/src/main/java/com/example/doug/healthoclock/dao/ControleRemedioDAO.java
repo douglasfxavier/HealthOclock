@@ -67,6 +67,14 @@ public class ControleRemedioDAO {
         return idControleRemedio;
     }
 
+    public void deletarControleRemedio(int controleRemedioId){
+
+        String sql = "DELETE FROM ControleRemedio WHERE " +
+                       "Id = " + controleRemedioId + ";";
+
+        this.banco.execSQL(sql);
+    }
+
     public ControleRemedio getById(int idControleRemedio,int idPaciente){
         ControleRemedio controleRemedio;
         Paciente paciente = pacienteDAO.localizarPorId(idPaciente);

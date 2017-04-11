@@ -6,6 +6,7 @@ import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 
 import com.example.doug.healthoclock.model.ControleExame;
+import com.example.doug.healthoclock.model.ControleRemedio;
 import com.example.doug.healthoclock.model.Exame;
 import com.example.doug.healthoclock.model.Paciente;
 
@@ -31,25 +32,34 @@ public class ControleExameDAO {
         }
     }
 
-    public void insert (ControleExame e)
+    public void inserirControleExame(ControleExame controleExame)
     {
         ContentValues cv = new ContentValues();
         cv.put("idpaciente",1);
-        cv.put("nome_unidade", e.getNomeUnidadeMedica());
-        cv.put("endereco_unidade", e.getEnderecoDaUnidade());
+        cv.put("nome_unidade", controleExame.getNomeUnidadeMedica());
+        cv.put("endereco_unidade", controleExame.getEnderecoDaUnidade());
         //cv.put("nome_paciente", e.getPaciente().getNome());
-        cv.put("dados_clinicos", e.getDadosClinicos());
-        cv.put("especialidade_medico", e.getEspecialidadeMedicoRequisitante());
-        cv.put("material_examinar", e.getMaterialExaminar());
-        cv.put("tipo_exame", e.getTipoExame());
-        cv.put("data_realizacao", e.getDataRealizacaoString());
+        cv.put("dados_clinicos", controleExame.getDadosClinicos());
+        cv.put("especialidade_medico", controleExame.getEspecialidadeMedicoRequisitante());
+        cv.put("material_examinar", controleExame.getMaterialExaminar());
+        cv.put("tipo_exame", controleExame.getTipoExame());
+        cv.put("data_realizacao", controleExame.getDataRealizacaoString());
 
         banco.insert("ControleExame", null, cv);
     }
 
+    public void deletarControleExame(int controleExameId){
+
+        String sql = "DELETE FROM ControleExame WHERE " +
+                "Id = " + controleExameId + ";";
+
+        this.banco.execSQL(sql);
+    }
+
+
     public List<ControleExame> getControleExames(int idPaciente)
     {
-        List<ControleExame> exames = new ArrayList<ControleExame>();
+        List<ControleExame> controleExames = new ArrayList<ControleExame>();
 
         Paciente paciente = pacienteDAO.localizarPorId(idPaciente);
         String colunas[] = {"id", "idpaciente", "nome_unidade", "endereco_unidade",
@@ -71,12 +81,12 @@ public class ControleExameDAO {
                 String tipo_exame = c.getString(c.getColumnIndex("tipo_exame"));
                 long data_realizacao = c.getLong(c.getColumnIndex("data_realizacao"));
 
-                exames.add(new ControleExame(idControleExame,nome_unidade, endereco_unidade, paciente,
+                controleExames.add(new ControleExame(idControleExame,nome_unidade, endereco_unidade, paciente,
                         dados_clinicos, especialidade_medico, material_examinar, tipo_exame, data_realizacao));
             } while(c.moveToNext());
         }
 
-        return exames;
+        return controleExames;
     }
 
     public ControleExame getById(int idExame, int idPaciente)
