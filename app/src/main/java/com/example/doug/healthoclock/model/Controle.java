@@ -26,6 +26,26 @@ public abstract class Controle {
         this.dataFim.setTimeInMillis(dataFim);
     }
 
+    public Controle(int id,Paciente paciente, long dataInicio, long dataFim) {
+        this.id = id;
+        this.paciente = paciente;
+        this.dataInicio = Calendar.getInstance();
+        this.dataInicio.setTimeInMillis(dataInicio);
+        this.dataFim = Calendar.getInstance();
+        this.dataFim.setTimeInMillis(dataFim);
+    }
+
+
+    public Controle(int id, Paciente paciente, int diaInicio, int mesInicio,  int anoInicio,
+                    int diaFim, int mesFim, int anoFim) {
+        this.id = id;
+        this.paciente = paciente;
+        this.dataInicio = Calendar.getInstance();
+        this.dataInicio.set(diaInicio,mesInicio,anoInicio);
+        this.dataFim = Calendar.getInstance();
+        this.dataFim.set(anoFim,mesFim,diaFim);
+    }
+
     public Controle(Paciente paciente, int diaInicio, int mesInicio,  int anoInicio,
                     int diaFim, int mesFim, int anoFim) {
         this.paciente = paciente;
@@ -34,16 +54,30 @@ public abstract class Controle {
         this.dataFim = Calendar.getInstance();
         this.dataFim.set(anoFim,mesFim,diaFim);
     }
-
-    //Construtor usado para as instâncias de exames
+    //Construtor usado para as instâncias de exames, sem ID
     public Controle(Paciente paciente, int dia, int mes, int ano) {
         this.paciente = paciente;
         this.dataInicio = Calendar.getInstance();
         this.dataInicio.set(ano,mes,dia);
     }
 
-    //Construtor usado para as instâncias de exames
+    //Construtor usado para as instâncias de exames, com ID
+    public Controle(int id, Paciente paciente, int dia, int mes, int ano) {
+        this.id = id;
+        this.paciente = paciente;
+        this.dataInicio = Calendar.getInstance();
+        this.dataInicio.set(ano,mes,dia);
+    }
+
+    //Construtor usado para as instâncias de exames, sem ID
     public Controle(Paciente paciente, long dataInicio) {
+        this.paciente = paciente;
+        this.dataInicio = Calendar.getInstance();
+        this.dataInicio.setTimeInMillis(dataInicio);
+    }
+    //Construtor usado para as instâncias de exames, com ID
+    public Controle(int id, Paciente paciente, long dataInicio) {
+        this.id = id;
         this.paciente = paciente;
         this.dataInicio = Calendar.getInstance();
         this.dataInicio.setTimeInMillis(dataInicio);
@@ -98,8 +132,8 @@ public abstract class Controle {
         this.lembretes = lembretes;
     }
 
-    public void addLembrete (Lembrete l){
-        this.lembretes.add(l);
+    public void addLembrete (Lembrete lembrete){
+        this.lembretes.add(lembrete);
     }
 
     public Lembrete getLembrete (int indice){

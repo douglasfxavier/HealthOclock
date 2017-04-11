@@ -1,0 +1,12 @@
+CREATE TABLE IF NOT EXISTS ControleExame (
+	id INTEGER NOT NULL PRIMARY KEY AUTOINCREMENT,
+	idpaciente INTEGER NOT NULL,
+	nome_unidade TEXT NOT NULL,
+	endereco_unidade TEXT,
+	dados_clinicos TEXT,
+	especialidade_medico TEXT,
+	material_examinar TEXT,
+	tipo_exame TEXT,
+	data_realizacao NUMERIC,
+	FOREIGN KEY(idpaciente) REFERENCES Paciente(Id)
+);

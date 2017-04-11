@@ -32,6 +32,7 @@ public class BancoHelp extends SQLiteOpenHelper{
         this.scripts.put(7,"script_create_lembrete");
         this.scripts.put(8,"script_insert_remedio");
         this.scripts.put(9,"script_insert_paciente");
+        this.scripts.put(10,"script_create_controleexame");
 
     }
 

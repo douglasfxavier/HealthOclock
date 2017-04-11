@@ -24,41 +24,20 @@
             android:id="@+id/itemRemedioNome"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text=""
+            android:text="@string/nome_do_remedio"
             android:textSize="20sp"/>
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="@string/PrincipioAtivo"
-            android:textSize="10sp"/>
-        <TextView
-            android:id="@+id/itemRemedioPrincioAtivo"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text=""
-            android:textSize="10sp"/>
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="@string/NomeLaboratorio"
-            android:textSize="10sp"/>
         <TextView
             android:id="@+id/itemRemedioLaboratorio"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text=""
-            android:textSize="10sp"/>
+            android:text="@string/NomeLaboratorio"
+            android:textSize="12sp"/>
         <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="@string/ClasseTerapeutica"
-            android:textSize="10sp"/>
-        <TextView
-            android:id="@+id/itemRemedioClasseTerapeutica"
+            android:id="@+id/itemRemedioDosagem"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text=""
-            android:textSize="10sp"/>
+            android:textSize="12sp"/>
     </LinearLayout>
 
 </LinearLayout>

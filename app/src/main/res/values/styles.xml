@@ -13,6 +13,8 @@
         <!-- Customize your theme here. -->
         <item name="android:title"></item>
         <item name="colorPrimary">@color/colorPatternApp</item>
+        <item name="colorAccent">@color/colorPatternApp</item>
+        <item name="android:textColorHint">@color/colorPatternApp</item>
     </style>
 
     <style name="AppTheme.NoActionBar">
@@ -20,7 +22,9 @@
         <item name="windowNoTitle">true</item>
     </style>
 
+
     <style name="AppTheme.AppBarOverlay" parent="ThemeOverlay.AppCompat.Dark.ActionBar" />
 
     <style name="AppTheme.PopupOverlay" parent="ThemeOverlay.AppCompat.Light" />
+    
 </resources>

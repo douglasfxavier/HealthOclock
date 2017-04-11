@@ -21,10 +21,30 @@ public class ControleRemedio extends Controle{
         this.tarja = tarja;
     }
 
+    public ControleRemedio(int id, Paciente paciente, Remedio remedio, long dataInicio, long dataFim,
+                           String dosagem, String formaUso, String tarja) {
+        super(id,paciente, dataInicio, dataFim);
+        this.remedio = remedio;
+        this.dosagem = dosagem;
+        this.formaUso = formaUso;
+        this.tarja = tarja;
+    }
+
+
     public ControleRemedio(Paciente paciente, int diaInicio, int mesInicio, int anoInicio,
+                                int diaFim, int mesFim, int anoFim,
+                                Remedio remedio, Calendar dataInicialUso, String dosagem, String formaUso, String tarja) {
+        super(paciente, diaInicio, mesInicio, anoInicio, diaFim, mesFim, anoFim);
+        this.remedio = remedio;
+        this.dosagem = dosagem;
+        this.formaUso = formaUso;
+        this.tarja = tarja;
+    }
+
+    public ControleRemedio(int id, Paciente paciente, int diaInicio, int mesInicio, int anoInicio,
                            int diaFim, int mesFim, int anoFim,
                            Remedio remedio, Calendar dataInicialUso, String dosagem, String formaUso, String tarja) {
-        super(paciente, diaInicio, mesInicio, anoInicio, diaFim, mesFim, anoFim);
+        super(id,paciente, diaInicio, mesInicio, anoInicio, diaFim, mesFim, anoFim);
         this.remedio = remedio;
         this.dosagem = dosagem;
         this.formaUso = formaUso;

@@ -17,6 +17,7 @@ import android.widget.RadioButton;
 import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.TimePicker;
+import android.widget.Toast;
 
 import com.example.doug.healthoclock.R;
 import com.example.doug.healthoclock.dao.ControleRemedioDAO;
@@ -30,7 +31,7 @@ import com.example.doug.healthoclock.model.Remedio;
 
 import java.util.Calendar;
 
-public class CadastroControleRemedio extends AppCompatActivity {
+public class CadastroControleRemedioActivity extends AppCompatActivity {
     private static BroadcastReceiver notificacaoReceiver;
     private RadioButton radioButtonTarjaBranca, radioButtonTarjaVermelha,radioButtonTarjaPreta, radioButtonUsoContinuo, radioButtonTempoDeterminado,
             radioButtonDiariamente, radioButtonDiasAlternados;
@@ -117,16 +118,16 @@ public class CadastroControleRemedio extends AppCompatActivity {
         @Override
         public void onClick(View v) {
 
-            if (v.equals(CadastroControleRemedio.this.radioButtonTempoDeterminado)) {
-                CadastroControleRemedio.this.textViewDiasUso.setVisibility(TextView.VISIBLE);
-                CadastroControleRemedio.this.editTextDiasUso.setVisibility(EditText.VISIBLE);
-            }else if (v.equals(CadastroControleRemedio.this.radioButtonUsoContinuo)){
-                CadastroControleRemedio.this.textViewDiasUso.setVisibility(TextView.GONE);
-                CadastroControleRemedio.this.editTextDiasUso.setVisibility(EditText.GONE);
-            }else if (v.equals(CadastroControleRemedio.this.radioButtonDiasAlternados)){
-                CadastroControleRemedio.this.layoutDiasSemana.setVisibility(LinearLayout.VISIBLE);
-            }else if (v.equals(CadastroControleRemedio.this.radioButtonDiariamente)){
-                CadastroControleRemedio.this.layoutDiasSemana.setVisibility(LinearLayout.GONE);
+            if (v.equals(CadastroControleRemedioActivity.this.radioButtonTempoDeterminado)) {
+                CadastroControleRemedioActivity.this.textViewDiasUso.setVisibility(TextView.VISIBLE);
+                CadastroControleRemedioActivity.this.editTextDiasUso.setVisibility(EditText.VISIBLE);
+            }else if (v.equals(CadastroControleRemedioActivity.this.radioButtonUsoContinuo)){
+                CadastroControleRemedioActivity.this.textViewDiasUso.setVisibility(TextView.GONE);
+                CadastroControleRemedioActivity.this.editTextDiasUso.setVisibility(EditText.GONE);
+            }else if (v.equals(CadastroControleRemedioActivity.this.radioButtonDiasAlternados)){
+                CadastroControleRemedioActivity.this.layoutDiasSemana.setVisibility(LinearLayout.VISIBLE);
+            }else if (v.equals(CadastroControleRemedioActivity.this.radioButtonDiariamente)){
+                CadastroControleRemedioActivity.this.layoutDiasSemana.setVisibility(LinearLayout.GONE);
             }
         }
     }
@@ -134,40 +135,45 @@ public class CadastroControleRemedio extends AppCompatActivity {
     private class OnClickBotao implements View.OnClickListener {
         @Override
         public void onClick(View v) {
-            if (v.equals(CadastroControleRemedio.this.btnSalvarControleRemedio)){
-                String nomeRemedio = CadastroControleRemedio.this.editTextControleNomeRemedio.getText().toString();
+            if (v.equals(CadastroControleRemedioActivity.this.btnSalvarControleRemedio)){
+                String nomeRemedio = CadastroControleRemedioActivity.this.editTextControleNomeRemedio.getText().toString();
                 remedio = remedioDAO.localizarPorNome(nomeRemedio);
-                paciente = pacienteDAO.localizarPorId(1);
-                String dosagem = CadastroControleRemedio.this.editTextControleDosagem.getText().toString();
-                String tarja = qualTarja();
-                qtdDias = Integer.parseInt(CadastroControleRemedio.this.editTextDiasUso.getText().toString());
-                dataInicio = getDataHoraInicial();
-                dataFim = gerarDataFim();
 
-                intervaloHoras = getIntervaloHoras();
+                if  (remedio != null) {
 
-                controleRemedio = new ControleRemedio(paciente,remedio,dataInicio,dataFim,dosagem,null,tarja);
+                    paciente = pacienteDAO.localizarPorId(1);
+                    String dosagem = CadastroControleRemedioActivity.this.editTextControleDosagem.getText().toString();
+                    String tarja = qualTarja();
+                    qtdDias = Integer.parseInt(CadastroControleRemedioActivity.this.editTextDiasUso.getText().toString());
+                    dataInicio = getDataHoraInicial();
+                    dataFim = gerarDataFim();
 
-                int idControleRemedio = controleRemedioDAO.inserirControleRemedio(controleRemedio);
-                controleRemedio.setId(idControleRemedio);
+                    intervaloHoras = getIntervaloHoras();
 
-                gerarLembretes();
+                    controleRemedio = new ControleRemedio(paciente, remedio, dataInicio, dataFim, dosagem, null, tarja);
 
-                Intent intent = new Intent(CadastroControleRemedio.this,RemediosActivity.class);
-                startActivity(intent);
+                    int idControleRemedio = controleRemedioDAO.inserirControleRemedio(controleRemedio);
+                    controleRemedio.setId(idControleRemedio);
 
-            }else if(v.equals(CadastroControleRemedio.this.btnCancelarControleRemedio)){
+                    gerarLembretes();
+
+                    Intent intent = new Intent(CadastroControleRemedioActivity.this, ListaControleRemedioActivity.class);
+                    startActivity(intent);
+                }else{
+                    Toast.makeText(CadastroControleRemedioActivity.this,"Remédio inexistente",Toast.LENGTH_SHORT).show();
+                }
+            }else if(v.equals(CadastroControleRemedioActivity.this.btnCancelarControleRemedio)){
 
             }
         }
     }
 
     private String qualTarja(){
-        if (CadastroControleRemedio.this.radioButtonTarjaBranca.isChecked()){
+        if (CadastroControleRemedioActivity.this.radioButtonTarjaBranca.isChecked()){
             return "Branca";
-        }else if(CadastroControleRemedio.this.radioButtonTarjaVermelha.isChecked()){
+        }else if(CadastroControleRemedioActivity.this.radioButtonTarjaVermelha.isChecked()){
             return "Vermelha";
-        }else if(CadastroControleRemedio.this.radioButtonTarjaPreta.isChecked()){
+        }else if(CadastroControleRemedioActivity.this.radioButtonTarjaPreta.isChecked()){
             return "Preta";
         }else{
             return null;
@@ -176,20 +182,20 @@ public class CadastroControleRemedio extends AppCompatActivity {
 
      private long getDataHoraInicial(){
          int dia, mes, ano, hora, minuto;
-         dia = CadastroControleRemedio.this.datePickerDataInicialRemedio.getDayOfMonth();
-         mes = CadastroControleRemedio.this.datePickerDataInicialRemedio.getMonth();
-         ano = CadastroControleRemedio.this.datePickerDataInicialRemedio.getYear();
+         dia = CadastroControleRemedioActivity.this.datePickerDataInicialRemedio.getDayOfMonth();
+         mes = CadastroControleRemedioActivity.this.datePickerDataInicialRemedio.getMonth();
+         ano = CadastroControleRemedioActivity.this.datePickerDataInicialRemedio.getYear();
          hora = 0;
          minuto = 0;
          if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
-             hora = CadastroControleRemedio.this.timePickerHoraInicialRemedio.getHour();
+             hora = CadastroControleRemedioActivity.this.timePickerHoraInicialRemedio.getHour();
          }else{
-             hora = CadastroControleRemedio.this.timePickerHoraInicialRemedio.getCurrentHour();
+             hora = CadastroControleRemedioActivity.this.timePickerHoraInicialRemedio.getCurrentHour();
          }
          if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
-             minuto = CadastroControleRemedio.this.timePickerHoraInicialRemedio.getMinute();
+             minuto = CadastroControleRemedioActivity.this.timePickerHoraInicialRemedio.getMinute();
          }else{
-             minuto = CadastroControleRemedio.this.timePickerHoraInicialRemedio.getCurrentMinute();
+             minuto = CadastroControleRemedioActivity.this.timePickerHoraInicialRemedio.getCurrentMinute();
          }
 
          Calendar dataHora = Calendar.getInstance();

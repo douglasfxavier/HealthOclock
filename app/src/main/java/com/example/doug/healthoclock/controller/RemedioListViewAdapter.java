@@ -1,18 +1,17 @@
 package com.example.doug.healthoclock.controller;
 
 import android.content.Context;
-import android.support.annotation.DrawableRes;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
-import android.widget.FrameLayout;
 import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.example.doug.healthoclock.R;
 import com.example.doug.healthoclock.model.ControleRemedio;
-import com.example.doug.healthoclock.model.Remedio;
+
+import org.w3c.dom.Text;
 
 import java.util.List;
 
@@ -20,11 +19,11 @@ import java.util.List;
  * Created by Doug on 09/02/2017.
  */
 
-public class RemediosListViewAdapter extends BaseAdapter {
+public class RemedioListViewAdapter extends BaseAdapter {
     private List<ControleRemedio> controleRemedios;
     private Context context;
 
-    public RemediosListViewAdapter(Context context, List<ControleRemedio> controleRemedios) {
+    public RemedioListViewAdapter(Context context, List<ControleRemedio> controleRemedios) {
         this.controleRemedios = controleRemedios;
         this.context = context;
     }
@@ -51,7 +50,7 @@ public class RemediosListViewAdapter extends BaseAdapter {
 
         if (convertView == null){
             LayoutInflater inflater = (LayoutInflater) this.context.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
-            layout = inflater.inflate(R.layout.list_view_item_remedios,null);
+            layout = inflater.inflate(R.layout.item_lista_remedio,null);
             layout.setMinimumHeight(200);
         }else {
             layout = convertView;
@@ -59,14 +58,13 @@ public class RemediosListViewAdapter extends BaseAdapter {
 
         ImageView itemTarja = (ImageView) layout.findViewById(R.id.tarja);
         TextView itemRemedioNome = (TextView) layout.findViewById(R.id.itemRemedioNome);
-        TextView itemRemedioPrincipioAtivo = (TextView) layout.findViewById(R.id.itemRemedioPrincioAtivo);
-        TextView itemRemedioLaboratorio = (TextView) layout.findViewById(R.id.itemRemedioLaboratorio);
-        TextView itemRmedioClasseTerapeutica = (TextView) layout.findViewById(R.id.itemRemedioClasseTerapeutica);
+        TextView itemRemedioDosagem = (TextView) layout.findViewById(R.id.itemRemedioDosagem);
+        TextView itemRemedioLaboratorio = (TextView) layout.findViewById((R.id.itemRemedioLaboratorio));
 
         itemRemedioNome.setText(controleRemedio.getRemedio().getNome());
-        itemRemedioPrincipioAtivo.setText(controleRemedio.getRemedio().getPrincipioAtivo());
         itemRemedioLaboratorio.setText(controleRemedio.getRemedio().getLaboratorio());
-        itemRmedioClasseTerapeutica.setText(controleRemedio.getRemedio().getClasseTerapeutica());
+        itemRemedioDosagem.setText(controleRemedio.getDosagem());
+
 
 
         //Define a cor da tarja que será exibida

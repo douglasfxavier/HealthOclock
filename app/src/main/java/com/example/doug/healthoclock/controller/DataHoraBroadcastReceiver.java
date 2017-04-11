@@ -1,6 +1,7 @@
 package com.example.doug.healthoclock.controller;
 
 import android.app.NotificationManager;
+import android.app.PendingIntent;
 import android.content.BroadcastReceiver;
 import android.content.Context;
 import android.content.Intent;
@@ -38,6 +39,7 @@ public class DataHoraBroadcastReceiver extends BroadcastReceiver {
             NotificationManager notificationManager = (NotificationManager)
                     context.getSystemService(Context.NOTIFICATION_SERVICE);
 
+
             if (lembretes != null && lembretes.size()!=0){
                 for(int i=0; i<lembretes.size();i++){
                     String nomeRemedio = ((ControleRemedio) lembretes.get(i).getControle())
@@ -45,6 +47,9 @@ public class DataHoraBroadcastReceiver extends BroadcastReceiver {
                     String msg = String.format("Está na hora de tomar seu remédio %s",nomeRemedio);
                     //Toast.makeText(context,msg,Toast.LENGTH_SHORT).show();
                     notificationBuilder.setContentText("Hora do remédio "+ nomeRemedio);
+//                    Intent activityIntent = new Intent(this,MainActivity.class);
+//                    PendingIntent pendingIntent = PendingIntent.getActivity(this,0,activityIntent);
+//                    notificationBuilder.addAction(null,"Feito!",);
                     notificationManager.notify(i,notificationBuilder.build());
                     lembretes.get(i).setVisto(true);
                     lembreteDAO.atualizarLembreteVisto(lembretes.get(i));

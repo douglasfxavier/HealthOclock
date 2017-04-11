@@ -36,4 +36,6 @@
     <string name="ClasseTerapeutica">Classe Terapêutica:</string>
     <string name="tarja">Tarja</string>
     <string name="intervaloHoras">Intervalo de horas</string>
+    <string name="data_exame">Data</string>
+    <string name="title_activity_exames">Exames</string>
 </resources>

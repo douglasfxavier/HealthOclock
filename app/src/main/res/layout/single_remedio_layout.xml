@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/activity_controle_exame"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:paddingBottom="@dimen/activity_vertical_margin"
+    android:paddingLeft="@dimen/activity_horizontal_margin"
+    android:paddingRight="@dimen/activity_horizontal_margin"
+    android:paddingTop="@dimen/activity_vertical_margin"
+    tools:context="com.example.doug.healthoclock.controller.SingleRemedioActivity">
+
+    <LinearLayout
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <TextView
+            android:text="@string/nome_do_remedio"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textSize="20sp"
+            android:textColor="@color/colorPatternApp"
+            android:id="@+id/textRemedio" />
+
+        <Space
+            android:layout_width="match_parent"
+            android:layout_height="20dp" />
+
+        <TextView
+            android:text="@string/NomeLaboratorio"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textColor="@color/colorPatternApp"/>
+        <TextView
+            android:text="@string/NomeLaboratorio"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/textLaboratorio" />
+
+        <TextView
+            android:text="@string/PrincipioAtivo"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textColor="@color/colorPatternApp"/>
+        <TextView
+            android:text="@string/PrincipioAtivo"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/textPrincipioAtivo" />
+
+        <Space
+            android:layout_width="match_parent"
+            android:layout_height="20dp" />
+
+        <TextView
+            android:text="@string/ClasseTerapeutica"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textColor="@color/colorPatternApp"/>
+        <TextView
+            android:text="@string/ClasseTerapeutica"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/textClasseTerapeutica" />
+
+        <TextView
+            android:text="@string/dosagem"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textColor="@color/colorPatternApp"/>
+        <TextView
+            android:text="@string/dosagem"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/textDosagem" />
+
+        <TextView
+            android:text="@string/tarja"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textColor="@color/colorPatternApp"/>
+        <TextView
+            android:text="@string/tarja"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/textTarja" />
+
+    </LinearLayout>
+</RelativeLayout>

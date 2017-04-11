@@ -5,13 +5,13 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:fitsSystemWindows="true"
-    tools:context="com.example.doug.healthoclock.controller.RemediosActivity">
+    tools:context="com.example.doug.healthoclock.controller.ListaControleExameActivity">
 
-    <include layout="@layout/content_remedios" />
+    <include layout="@layout/content_lista_exames" />
 
     <android.support.design.widget.FloatingActionButton
-        android:id="@+id/fab"
-        android:layout_width="wrap_content"
+        android:id="@+id/btnAdicionarExame"
+        android:layout_width="59dp"
         android:layout_height="wrap_content"
         android:layout_gravity="bottom|end"
         android:layout_margin="@dimen/fab_margin"
@@ -19,3 +19,4 @@
         app:backgroundTint="@color/colorPatternButton" />
 
 </android.support.design.widget.CoordinatorLayout>
+

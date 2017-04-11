@@ -8,8 +8,6 @@ import android.util.Log;
 
 import com.example.doug.healthoclock.model.ControleRemedio;
 import com.example.doug.healthoclock.model.Lembrete;
-import com.example.doug.healthoclock.model.Paciente;
-import com.example.doug.healthoclock.model.Remedio;
 
 import java.io.IOException;
 import java.util.ArrayList;
@@ -71,7 +69,7 @@ public class LembreteDAO {
         do{
 
             int idControle = cursor.getInt(cursor.getColumnIndex("IdControle"));
-            ControleRemedio controleRemedio = controleRemedioDAO.localizarPorId(idControle);
+            ControleRemedio controleRemedio = controleRemedioDAO.getById(idControle,1);
 
             Long dataHora = cursor.getLong(cursor.getColumnIndex("DataHora"));
 
@@ -110,7 +108,7 @@ public class LembreteDAO {
         cursor.moveToFirst();
         do {
             int idControle = cursor.getInt(cursor.getColumnIndex("IdControle"));
-            ControleRemedio controleRemedio = controleRemedioDAO.localizarPorId(idControle);
+            ControleRemedio controleRemedio = controleRemedioDAO.getById(idControle,1);
 
             Long dataHora = cursor.getLong(cursor.getColumnIndex("DataHora"));
 

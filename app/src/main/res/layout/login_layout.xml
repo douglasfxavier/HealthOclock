@@ -36,31 +36,36 @@
             android:fontFamily="sans-serif"/>
     </LinearLayout>
 
+
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="0dp"
         android:layout_weight="6"
         android:orientation="vertical">
 
-        <EditText
-            android:id="@+id/editEmailLogin"
-            android:inputType="textEmailAddress"
+        <android.support.design.widget.TextInputLayout
+            android:id="@+id/inputLogin_email"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:hint="@string/email"
-            android:textColorHint="@color/colorPrimaryWhite"
-            android:textColor="@color/colorPrimaryWhite"
-            android:textColorHighlight="@color/colorPrimaryWhite"/>
+            android:layout_height="wrap_content">
+            <EditText
+                android:id="@+id/editEmailLogin"
+                android:inputType="textEmailAddress"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="@string/email" />
+        </android.support.design.widget.TextInputLayout>
 
-        <EditText
-            android:id="@+id/editSenhaLogin"
-            android:inputType="textPassword"
+        <android.support.design.widget.TextInputLayout
+            android:id="@+id/inputLogin_senha"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:hint="@string/senha"
-            android:textColorHint="@color/colorPrimaryWhite"
-            android:textColor="@color/colorPrimaryWhite"
-            android:textColorHighlight="@color/colorPrimaryWhite"/>
+            android:layout_height="wrap_content">
+            <EditText
+                android:id="@+id/editSenhaLogin"
+                android:inputType="textPassword"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="@string/senha" />
+        </android.support.design.widget.TextInputLayout>
 
         <Button
             android:id="@+id/btnEntrarLogin"

@@ -19,6 +19,21 @@ public class ControleExame extends Controle{
     public ControleExame() {
     }
 
+    public ControleExame(int id, String nomeUnidadeMedica, String enderecoDaUnidade,
+                         Paciente paciente, String dadosClinicos,
+                         String especialidadeMedicoRequisitante, String materialExaminar,
+                         String tipoExame, long dataRealizacao) {
+        super(id,paciente,dataRealizacao);
+        this.nomeUnidadeMedica = nomeUnidadeMedica;
+        this.enderecoDaUnidade = enderecoDaUnidade;
+        this.paciente = paciente;
+        this.dadosClinicos = dadosClinicos;
+        this.especialidadeMedicoRequisitante = especialidadeMedicoRequisitante;
+        this.materialExaminar = materialExaminar;
+        this.tipoExame = tipoExame;
+        this.dataRealizacao = Calendar.getInstance();
+        this.dataRealizacao.setTimeInMillis(dataRealizacao);
+    }
     public ControleExame(String nomeUnidadeMedica, String enderecoDaUnidade,
                          Paciente paciente, String dadosClinicos,
                          String especialidadeMedicoRequisitante, String materialExaminar,
@@ -40,6 +55,22 @@ public class ControleExame extends Controle{
                          String especialidadeMedicoRequisitante, String materialExaminar,
                          String tipoExame, int dia, int mes, int ano) {
         super(paciente,dia,mes,ano);
+        this.nomeUnidadeMedica = nomeUnidadeMedica;
+        this.enderecoDaUnidade = enderecoDaUnidade;
+        this.paciente = paciente;
+        this.dadosClinicos = dadosClinicos;
+        this.especialidadeMedicoRequisitante = especialidadeMedicoRequisitante;
+        this.materialExaminar = materialExaminar;
+        this.tipoExame = tipoExame;
+        this.dataRealizacao = Calendar.getInstance();
+        this.dataRealizacao.set(dia,mes,ano);
+    }
+
+    public ControleExame(int id,String nomeUnidadeMedica, String enderecoDaUnidade,
+                         Paciente paciente, String dadosClinicos,
+                         String especialidadeMedicoRequisitante, String materialExaminar,
+                         String tipoExame, int dia, int mes, int ano) {
+        super(id,paciente,dia,mes,ano);
         this.nomeUnidadeMedica = nomeUnidadeMedica;
         this.enderecoDaUnidade = enderecoDaUnidade;
         this.paciente = paciente;

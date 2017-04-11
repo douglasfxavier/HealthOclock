@@ -9,33 +9,33 @@
     android:paddingRight="@dimen/activity_horizontal_margin"
     android:paddingTop="@dimen/activity_vertical_margin"
     android:orientation="vertical"
-    tools:context="com.example.doug.healthoclock.controller.CadastroControleRemedio">
+    tools:context="com.example.doug.healthoclock.controller.CadastroControleRemedioActivity">
 
     <ScrollView
         android:layout_width="match_parent"
         android:layout_height="match_parent">
+
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="vertical">
-            <TextView
-                 android:layout_width="match_parent"
-                 android:layout_height="wrap_content"
-                 android:text="@string/nome_do_remedio"
-                 android:textSize="20sp"
-                android:textColor="@color/colorPatternApp"/>
+
 <!--            <SearchView
                  android:id="@+id/searchRemedioANS"
                  android:layout_width="match_parent"
                  android:layout_height="wrap_content"
                  android:searchIcon="@drawable/buscar_button">
             </SearchView>-->
-
-            <EditText
-                 android:id="@+id/editTextControleNomeRemedio"
-                 android:layout_width="match_parent"
-                 android:layout_height="wrap_content"
-                 android:hint="Digite o nome do remédio"/>
+            <android.support.design.widget.TextInputLayout
+                android:id="@+id/input_nome"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+                <EditText
+                    android:id="@+id/editTextControleNomeRemedio"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:hint="@string/nome_do_remedio"/>
+            </android.support.design.widget.TextInputLayout>
 
             <Space
                 android:layout_width="match_parent"
@@ -54,26 +54,20 @@
             </Spinner>
 -->
 
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="@string/dosagem"
-                android:textSize="20sp"
-                android:textColor="@color/colorPatternApp"/>
-            <EditText
-                android:id="@+id/editTextControleDosagem"
-                android:layout_width="100dp"
-                android:layout_height="wrap_content" />
-            <Space
+            <android.support.design.widget.TextInputLayout
+                android:id="@+id/input_dosagem"
                 android:layout_width="match_parent"
-                android:layout_height="20dp" />
+                android:layout_height="wrap_content">
+                <EditText
+                    android:id="@+id/editTextControleDosagem"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:hint="@string/dosagem"/>
+                <Space
+                    android:layout_width="match_parent"
+                    android:layout_height="20dp" />
+            </android.support.design.widget.TextInputLayout>
 
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="@string/tarja"
-                android:textSize="20sp"
-                android:textColor="@color/colorPatternApp"/>
 
             <RadioGroup
                 android:layout_width="match_parent"
@@ -289,15 +283,18 @@
                     android:layout_width="100dp"
                     android:layout_height="wrap_content"
                     android:text="@string/botao_cancelar"
+                    android:textSize="15sp"
+                    android:textColor="@color/colorPrimaryWhite"
                     android:background="@color/colorPatternButton"/>
                 <Space
                     android:layout_width="20dp"
-                    android:layout_height="wrap_content"
-                    />
+                    android:layout_height="wrap_content" />
                 <Button
                     android:id="@+id/btnSalvarCadastroRemedio"
                     android:layout_width="100dp"
                     android:layout_height="wrap_content"
+                    android:textSize="15sp"
+                    android:textColor="@color/colorPrimaryWhite"
                     android:text="@string/botao_salvar"
                     android:background="@color/colorPatternButton"/>
             </LinearLayout>

@@ -67,26 +67,26 @@ public class ControleRemedioDAO {
         return idControleRemedio;
     }
 
-    public ControleRemedio localizarPorId(int idControle){
+    public ControleRemedio getById(int idControleRemedio,int idPaciente){
         ControleRemedio controleRemedio;
-        String query = "SELECT * FROM ControleRemedio WHERE Id = " + idControle +";";
+        Paciente paciente = pacienteDAO.localizarPorId(idPaciente);
+
+        String query = "SELECT * FROM ControleRemedio WHERE Id = " + idControleRemedio +";";
         Cursor cursor = this.banco.rawQuery(query,null);
 
         if (cursor.getCount() == 0)
             return null;
 
         cursor.moveToFirst();
-        Long idRemedio = cursor.getLong(cursor.getColumnIndex("IdRemedio"));
+        long idRemedio = cursor.getLong(cursor.getColumnIndex("IdRemedio"));
         Remedio remedio = remedioDAO.localizarPorId(idRemedio);
-        int idPaciente = cursor.getInt(cursor.getColumnIndex("IdPaciente"));
-        Paciente paciente = pacienteDAO.localizarPorId(idPaciente);
         Long dataInicioUso = cursor.getLong(cursor.getColumnIndex("DataInicioUso"));
         Long dataFinalUso = cursor.getLong(cursor.getColumnIndex("DataFinalUso"));
         String dosagem = cursor.getString(cursor.getColumnIndex("Dosagem"));
         String formaUso = cursor.getString(cursor.getColumnIndex("FormaUso"));
         String tarja = cursor.getString(cursor.getColumnIndex("Tarja"));
 
-        controleRemedio = new ControleRemedio(paciente,remedio,dataInicioUso,dataFinalUso,
+        controleRemedio = new ControleRemedio(idControleRemedio,paciente,remedio,dataInicioUso,dataFinalUso,
                 dosagem,formaUso,tarja);
 
         return controleRemedio;
@@ -102,6 +102,7 @@ public class ControleRemedioDAO {
 
         cursor.moveToFirst();
         do{
+            int idControleRemedio = cursor.getInt(cursor.getColumnIndex("Id"));
             Paciente paciente = pacienteDAO.localizarPorId(idPaciente);
             Long idRemedio = cursor.getLong(cursor.getColumnIndex("IdRemedio"));
             Remedio remedio = remedioDAO.localizarPorId(idRemedio);
@@ -110,11 +111,12 @@ public class ControleRemedioDAO {
             String dosagem = cursor.getString(cursor.getColumnIndex("Dosagem"));
             String formaUso = cursor.getString(cursor.getColumnIndex("FormaUso"));
             String tarja = cursor.getString(cursor.getColumnIndex("Tarja"));
-            controlesRemedios.add(new ControleRemedio(paciente,remedio,dataInicioUso,dataFinalUso,
+            controlesRemedios.add(new ControleRemedio(idControleRemedio,paciente,remedio,dataInicioUso,dataFinalUso,
                     dosagem,formaUso,tarja));
 
         }while (cursor.moveToNext());
 
         return controlesRemedios;
     }
+
 }

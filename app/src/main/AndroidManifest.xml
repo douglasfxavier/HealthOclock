@@ -32,7 +32,7 @@
             android:name=".controller.MenuActivity"
             android:theme="@style/AppViews" />
         <activity
-            android:name=".controller.RemediosActivity"
+            android:name=".controller.ListaControleRemedioActivity"
             android:theme="@style/AppViews" />
         <activity android:name=".controller.SearchResultActivity">
             <intent-filter>
@@ -44,7 +44,7 @@
                 android:value=".SearchResultActivity" />
         </activity>
         <activity
-            android:name=".controller.CadastroControleRemedio"
+            android:name=".controller.CadastroControleRemedioActivity"
             android:theme="@style/AppViews" />
 
         <receiver android:name=".controller.BootBroadcastReceiver">
@@ -54,6 +54,20 @@
         </receiver>
 
         <activity android:name=".controller.Background" />
+        <activity
+            android:name=".controller.CadastroControleExameActivity"
+            android:theme="@style/AppViews" />
+        <activity
+            android:name=".controller.SingleExameActivity"
+            android:theme="@style/AppViews" />
+        <activity
+            android:name=".controller.SingleRemedioActivity"
+            android:theme="@style/AppViews" />
+        <activity
+            android:name=".controller.ListaControleExameActivity"
+            android:theme="@style/AppViews">
+        </activity>
+
     </application>
 
 </manifest>

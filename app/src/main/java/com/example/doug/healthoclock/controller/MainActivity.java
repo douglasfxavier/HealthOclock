@@ -49,7 +49,7 @@ public class MainActivity extends AppCompatActivity {
         public void onClick(View v) {
 
             if (v.equals(MainActivity.this.btnEntrar)){
-                Intent welcomeIntent = new Intent(MainActivity.this,WelcomeActivity.class);
+                Intent welcomeIntent = new Intent(MainActivity.this,MenuActivity.class);
                 startActivity(welcomeIntent);
             }
 

@@ -28,7 +28,7 @@ public class RemedioDAO {
         }
     }
 
-    public Remedio localizarPorId(Long idRemedio){
+    public Remedio localizarPorId(long idRemedio){
         String query = "SELECT * FROM Remedio WHERE id = " + idRemedio + ";";
 
         Cursor cursor = this.banco.rawQuery(query,null);
@@ -44,7 +44,8 @@ public class RemedioDAO {
     }
 
     public Remedio localizarPorNome(String nome){
-        String query = "SELECT * FROM Remedio WHERE Nome = \'" + nome +"\';";
+
+        String query = "SELECT * FROM Remedio WHERE Nome = \'" + nome.toUpperCase() +"\';";
         Log.i("HEALTH",query);
         Cursor cursor = this.banco.rawQuery(query,null);
         cursor.moveToFirst();
